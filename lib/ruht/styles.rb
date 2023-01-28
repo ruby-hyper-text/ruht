@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Ruht
-  # Formats HTML styles attribute
+  # Formats HTML styles attribute value
   class Styles
     def initialize(styles_hash)
       @styles_hash = styles_hash

@@ -23,11 +23,11 @@ module Ruht
     def to_s
       eval_children!
       opening_tag = [@tag_name, @attributes].join(" ").strip
-      <<~HTML.strip
-        <#{opening_tag}>
-        #{@children.join("\n")}
-        </#{@tag_name}>
-      HTML
+      [
+        "<#{opening_tag}>",
+        *@children.map(&:to_s),
+        "</#{@tag_name}>"
+      ].join("\n").strip
     end
 
     private
