@@ -2,7 +2,7 @@
 
 require_relative "ruht/version"
 
+# Ruht allows generating HTML in Ruby with fancy DSL.
+# Refer to Ruht::Document for more info.
 module Ruht
-  class Error < StandardError; end
-  # Your code goes here...
 end
