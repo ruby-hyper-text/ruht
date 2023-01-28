@@ -6,7 +6,8 @@ AllCops:
   TargetRubyVersion: 2.6
   NewCops: enable
   Exclude:
-    - bin/*
+    - 'bin/*'
+    - 'vendor/bundle/**/*'
 
 Style/StringLiterals:
   Enabled: true
