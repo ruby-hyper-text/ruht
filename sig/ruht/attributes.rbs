@@ -1,0 +1,32 @@
+module Ruht
+  class Attributes
+    @boolean_attributes: Array[Symbol | String]
+    @class_list: Array[Symbol | String] | nil
+    @style_attribute_value: Hash[String | Symbol, String | Symbol | Numeric] | nil
+    @data_attributes_hash: Hash[String | Symbol, String | Symbol | Numeric | bool] | nil
+    @content_attributes: Hash[String | Symbol, String | Symbol | Numeric | bool]
+
+    def initialize: (
+      *Symbol | String boolean_attributes,
+      ? class: Array[String | Symbol] | nil,
+      ? data: Hash[String | Symbol, String | Symbol | Numeric | bool] | nil,
+      ? style: Hash[String | Symbol, String | Symbol | Numeric] | nil,
+      **untyped content_attributes
+    ) -> void
+
+    def to_s: () -> String
+
+    private
+
+    def format_attribute: (
+      Symbol | String name,
+      String | Symbol | bool | Numeric value
+    ) -> String
+
+    def class_attribute: -> String?
+
+    def style_attribute: -> String?
+
+    def data_attributes: -> String?
+  end
+end

@@ -37,7 +37,7 @@ module Ruht
       return nil if @class_list.nil?
 
       format_attribute(
-        :class, Ruht::ClassAttribute.new(@class_list).to_s
+        :class, Ruht::ClassAttribute.new(@class_list || []).to_s
       )
     end
 
@@ -45,14 +45,14 @@ module Ruht
       return nil if @style_attribute_value.nil?
 
       format_attribute(
-        :style, Ruht::StyleAttribute.new(@style_attribute_value).to_s
+        :style, Ruht::StyleAttribute.new(@style_attribute_value || {}).to_s
       )
     end
 
     def data_attributes
       return nil if @data_attributes_hash.nil?
 
-      Ruht::DataAttributes.new(@data_attributes_hash).to_s
+      Ruht::DataAttributes.new(@data_attributes_hash || {}).to_s
     end
   end
 end

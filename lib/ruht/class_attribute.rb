@@ -8,7 +8,7 @@ module Ruht
     end
 
     def to_s
-      return @class_list if @class_list.is_a?(String)
+      return @class_list.to_s if @class_list.is_a?(String)
 
       @class_list.join(" ")
     end

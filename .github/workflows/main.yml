@@ -40,3 +40,16 @@ jobs:
         bundler-cache: true
     - name: Run the rubocop
       run: bin/rubocop
+
+  types:
+    runs-on: ubuntu-latest
+    name: Check types
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+    - name: Run the steep check
+      run: bin/steep check

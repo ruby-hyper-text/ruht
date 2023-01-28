@@ -1,0 +1,9 @@
+module Ruht
+  class Document < Ruht::Element
+    def initialize: () ?{ () -> untyped } -> void
+
+    def doctype: (*untyped args) -> untyped
+
+    def to_s: () -> untyped
+  end
+end
