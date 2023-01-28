@@ -18,5 +18,3 @@ module Ruht
     end
   end
 end
-
-puts Ruht::DataAttributes.new(key: 1, behavior: :delete).to_s

@@ -1,4 +1,4 @@
+# Ruht allows generating HTML in Ruby with fancy DSL.
+# Refer to Ruht::Document for more info.
 module Ruht
-  VERSION: String
-  # See the writing guide of rbs: https://github.com/ruby/rbs#guides
 end
