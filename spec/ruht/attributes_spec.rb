@@ -34,11 +34,19 @@ RSpec.describe Ruht::Attributes do
       end
     end
 
-    context "with data attribute", pending: "not implemented yet" do
+    context "with data attribute" do
       let(:attributes) { { data: { id: 1, "loading-behavior": :spinner } } }
 
       it "renders it as separate attributes" do
         expect(html).to eq('data-id="1" data-loading-behavior="spinner"')
+      end
+    end
+
+    context "with class tag as array" do
+      let(:attributes) { { class: %w[accordion-trigger fieldset] } }
+
+      it "renders it as separate attributes", pending: "not implemented yet" do
+        expect(html).to eq('class="accordion-trigger fieldset"')
       end
     end
   end

@@ -3,6 +3,10 @@
 module Ruht
   # DSL magic here
   module Tags
+    def render!(_element)
+      raise NotImplementedError
+    end
+
     # Allows to define new tags
     module ClassMethods
       def def_tag(tag_name)
@@ -11,8 +15,8 @@ module Ruht
           attributes = Ruht::Attributes.new(*args, **kwargs)
 
           require "ruht/element"
-          node = Ruht::Element.new(tag_name, attributes, &block)
-          render!(node)
+          element = Ruht::Element.new(tag_name, attributes, &block)
+          render!(element)
         end
       end
 
@@ -22,8 +26,8 @@ module Ruht
           attributes = Ruht::Attributes.new(*args, **kwargs)
 
           require "ruht/void_element"
-          node = Ruht::VoidElement.new(tag_name, attributes)
-          render!(node)
+          element = Ruht::VoidElement.new(tag_name, attributes)
+          render!(element)
         end
       end
     end

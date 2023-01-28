@@ -1,0 +1,18 @@
+module Ruht
+  class DataAttributes
+    @data_hash: Hash[Symbol | String, Symbol | String | Numeric | bool]
+
+    def initialize: (
+      Hash[Symbol | String, Symbol | String | Numeric | bool] data_hash
+    ) -> void
+
+    def to_s: -> String
+
+    private
+
+    def format_attribute: (
+      Symbol | String name,
+      Symbol | String | Numeric | bool value
+    ) -> String
+  end
+end
