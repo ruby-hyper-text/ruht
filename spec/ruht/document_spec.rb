@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "date"
+
 require "ruht/document"
 
 RSpec.describe Ruht::Document do
