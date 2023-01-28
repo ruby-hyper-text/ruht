@@ -45,7 +45,7 @@ RSpec.describe Ruht::Attributes do
     context "with class tag as array" do
       let(:attributes) { { class: %w[accordion-trigger fieldset] } }
 
-      it "renders it as separate attributes", pending: "not implemented yet" do
+      it "renders it as separate attributes" do
         expect(html).to eq('class="accordion-trigger fieldset"')
       end
     end
