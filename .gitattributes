@@ -1,0 +1,13 @@
+* text=auto
+
+# Explicitly declare text files that should be normalized and converted
+# to native line endings on checkout.
+*.md text
+
+# Declare files that should have CRLF line endings on checkout.
+
+# Declare files that should have LF line endings on checkout.
+*.rb eol=lf
+
+Gemfile.lock linguist-generated
+bin/* linguist-generated
