@@ -36,7 +36,7 @@ module Ruht
       receiver.extend ClassMethods
 
       receiver.instance_eval do
-        %i[html head body title main p span time script style].each do |tag|
+        %i[html head body title main p span time script style pre].each do |tag|
           def_tag tag
         end
 
