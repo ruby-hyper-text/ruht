@@ -8,7 +8,7 @@ module Ruht
   #   head { ... }
   # end
   module Html
-    def self.html(&block)
+    def html(&block)
       Ruht::Document.new(&block).to_s
     end
   end
