@@ -40,7 +40,9 @@ module Ruht
           def_tag tag
         end
 
-        def_void_tag :input
+        %i[meta input].each do |tag|
+          def_void_tag tag
+        end
       end
     end
   end
