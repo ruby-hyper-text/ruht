@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'ruht/document'
+
 module Ruht
   # Entry point DSL for Ruht:
   # Ruht.html do

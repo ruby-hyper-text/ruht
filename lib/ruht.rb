@@ -2,6 +2,7 @@
 
 require 'ruht/version'
 require 'ruht/html'
+require 'ruht/document'
 
 # Ruht allows generating HTML in Ruby with fancy DSL.
 # Refer to Ruht::Document for more info.
