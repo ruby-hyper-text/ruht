@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require "date"
+require 'date'
 
-require "ruht/document"
+require 'ruht/document'
 
 RSpec.describe Ruht::Document do
   subject(:document) do
-    current_time = DateTime.parse("2023-01-28 11:57")
+    current_time = DateTime.parse('2023-01-28 11:57')
     time_element = described_class.new do
       time datetime: current_time.iso8601 do
         current_time.asctime
@@ -26,7 +26,7 @@ RSpec.describe Ruht::Document do
     end
   end
 
-  describe "#to_s" do
+  describe '#to_s' do
     let(:html_including_fragment) do
       <<~HTML.strip
         <!DOCTYPE html>
@@ -44,7 +44,7 @@ RSpec.describe Ruht::Document do
       HTML
     end
 
-    it "renders fragments" do
+    it 'renders fragments' do
       expect(document.to_s).to eq(html_including_fragment)
     end
   end

@@ -8,7 +8,7 @@ module Ruht
     end
 
     def to_s
-      @data_hash.map { format_attribute(_1, _2) }.join(" ")
+      @data_hash.map { format_attribute(_1, _2) }.join(' ')
     end
 
     private

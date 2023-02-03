@@ -10,7 +10,7 @@ module Ruht
     def to_s
       return @styles_hash.to_s if @styles_hash.is_a?(String)
 
-      @styles_hash.map { "#{_1}: #{_2};" }.join(" ")
+      @styles_hash.map { "#{_1}: #{_2};" }.join(' ')
     end
   end
 end

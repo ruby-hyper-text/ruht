@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "ruht/element"
+require 'ruht/element'
 
 module Ruht
   # Represents elements with no closing tag and no children
@@ -11,7 +11,7 @@ module Ruht
     end
 
     def to_s
-      "<#{[@tag_name, @attributes].join(" ").strip}>"
+      "<#{[@tag_name, @attributes].join(' ').strip}>"
     end
   end
 end

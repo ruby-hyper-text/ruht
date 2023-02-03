@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "ruht/tags"
+require 'ruht/tags'
 
 module Ruht
   # Represents an HTML element
@@ -22,7 +22,7 @@ module Ruht
 
     def to_s
       eval_children!
-      opening_tag = [@tag_name, @attributes].join(" ").strip
+      opening_tag = [@tag_name, @attributes].join(' ').strip
       [
         "<#{opening_tag}>",
         *@children.map(&:to_s),

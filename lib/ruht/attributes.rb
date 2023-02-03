@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require "ruht/data_attributes"
-require "ruht/class_attribute"
-require "ruht/style_attribute"
+require 'ruht/data_attributes'
+require 'ruht/class_attribute'
+require 'ruht/style_attribute'
 
 module Ruht
   # Represents HTML attrbiutes.
@@ -21,10 +21,10 @@ module Ruht
       [
         class_attribute,
         style_attribute,
-        @boolean_attributes.join(" "),
-        @content_attributes.map { format_attribute(_1, _2) }.join(" "),
+        @boolean_attributes.join(' '),
+        @content_attributes.map { format_attribute(_1, _2) }.join(' '),
         data_attributes
-      ].compact.join(" ").strip
+      ].compact.join(' ').strip
     end
 
     private

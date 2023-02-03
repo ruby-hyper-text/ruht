@@ -10,7 +10,7 @@ module Ruht
     def to_s
       return @class_list.to_s if @class_list.is_a?(String)
 
-      @class_list.join(" ")
+      @class_list.join(' ')
     end
   end
 end
