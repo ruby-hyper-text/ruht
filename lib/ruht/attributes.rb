@@ -1,58 +1,44 @@
 # frozen_string_literal: true
 
-require 'ruht/data_attributes'
-require 'ruht/class_attribute'
-require 'ruht/style_attribute'
+require 'ruht/attributes/boolean_attribute'
+require 'ruht/attributes/class_attribute'
+require 'ruht/attributes/content_attribute'
+require 'ruht/attributes/data_attributes'
+require 'ruht/attributes/style_attribute'
 
 module Ruht
-  # Represents HTML attrbiutes.
+  # Represents HTML attributes.
   # Does not validate them for existance.
   class Attributes
-    def initialize(*boolean_attributes,
-                   class: nil, style: nil, data: nil, **content_attributes)
+    def initialize(*boolean_attributes, **content_attributes)
       @boolean_attributes = boolean_attributes
-      @style_attribute_value = style
-      @data_attributes_hash = data
-      @class_list = binding.local_variable_get(:class)
       @content_attributes = content_attributes
     end
 
     def to_s
       [
-        class_attribute,
-        style_attribute,
-        @boolean_attributes.join(' '),
-        @content_attributes.map { format_attribute(_1, _2) }.join(' '),
-        data_attributes
+        *boolean_attributes,
+        *content_attributes
       ].compact.join(' ').strip
     end
 
     private
 
-    def format_attribute(name, value)
-      format('%<name>s="%<value>s"', name: name, value: value)
+    def boolean_attributes
+      @boolean_attributes.map do |attr_name|
+        BooleanAttribute.new(attr_name)
+      end
     end
 
-    def class_attribute
-      return nil if @class_list.nil?
-
-      format_attribute(
-        :class, Ruht::ClassAttribute.new(@class_list || []).to_s
-      )
-    end
-
-    def style_attribute
-      return nil if @style_attribute_value.nil?
-
-      format_attribute(
-        :style, Ruht::StyleAttribute.new(@style_attribute_value || {}).to_s
-      )
-    end
-
-    def data_attributes
-      return nil if @data_attributes_hash.nil?
-
-      Ruht::DataAttributes.new(@data_attributes_hash || {}).to_s
+    def content_attributes
+      @content_attributes.map do |attr_name, attr_value|
+        case attr_name.to_sym
+        when :class then ClassAttribute.new(attr_name, attr_value)
+        when :data then DataAttributes.new(attr_name, attr_value)
+        when :style then StyleAttribute.new(attr_name, attr_value)
+        else ContentAttribute.new(attr_name, attr_value)
+        end
+      end
     end
   end
 end

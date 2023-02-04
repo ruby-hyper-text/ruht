@@ -24,8 +24,13 @@ module Ruht
     end
 
     # Allows to render other fragments / elements inside
-    def render!(child_node)
-      @children << child_node
+    def render!(child_node = nil, file: nil)
+      if child_node.nil? && file.nil?
+        raise ArgumentError,
+              'No arguments passed to render!'
+      end
+
+      @children << (child_node || FragmentFromFile.new)
       nil
     end
 
