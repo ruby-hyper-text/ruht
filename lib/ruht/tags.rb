@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 module Ruht
-  # DSL magic here
+  # DSL magic here. Including this module will define methods for HTML tags.
   module Tags
+    # Must be implemented
     def render!(_element)
       raise NotImplementedError
     end
@@ -36,7 +37,7 @@ module Ruht
       receiver.extend ClassMethods
 
       receiver.instance_eval do
-        %i[html head body title main p span time script style pre].each do |tag|
+        %i[head body title main p span time script style pre].each do |tag|
           def_tag tag
         end
 

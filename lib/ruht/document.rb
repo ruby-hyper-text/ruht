@@ -5,7 +5,7 @@ require 'ruht/element'
 require 'ruht/void_element'
 
 module Ruht
-  # Represents a piece of HTML with no wrappers
+  # Represents an HTML document
   # Document.new do
   #   doctype :html
   #   html do
@@ -17,18 +17,26 @@ module Ruht
   # <html>
   # ...
   # </html>
-  class Document < Ruht::Element
-    def initialize(&block)
-      super('', Ruht::Attributes.new, &block)
+  class Document
+    def initialize(&child_block)
+      @doctype = nil
+      @html = nil
+      @child_block = child_block
     end
 
     def doctype(*args)
-      render!(Ruht::VoidElement.new('!DOCTYPE', Ruht::Attributes.new(*args)))
+      @doctype = Ruht::VoidElement.new('!DOCTYPE', Ruht::Attributes.new(*args))
+    end
+
+    def html(*args, **kwargs, &block)
+      @html = Ruht::Element.new(
+        :html, Ruht::Attributes.new(*args, **kwargs), &block
+      )
     end
 
     def to_s
-      eval_children!
-      @children.join("\n")
+      instance_eval(&@child_block)
+      [@doctype, @html].compact.join("\n")
     end
   end
 end

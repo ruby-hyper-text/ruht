@@ -1,50 +1,27 @@
 # frozen_string_literal: true
 
-require 'ruht/tags'
+require 'ruht/fragment'
 
 module Ruht
-  # Represents an HTML element
-  class Element
-    include Tags
-
+  # Represents an HTML element / node
+  class Element < Fragment
     def initialize(tag_name, attributes, &child_block)
       @tag_name = tag_name
-      @children = []
-      @evaluated = false
       @attributes = attributes
-      @child_block = child_block
-    end
-
-    def render!(child_node)
-      @children << child_node
-      nil
+      super(&child_block)
     end
 
     def to_s
-      eval_children!
+      children = super() # call Fragment#to_s
+
       opening_tag = [@tag_name, @attributes].join(' ').strip
+      return "<#{opening_tag} />" if children.empty?
+
       [
         "<#{opening_tag}>",
-        *@children.map(&:to_s),
+        children,
         "</#{@tag_name}>"
       ].join("\n").strip
-    end
-
-    private
-
-    def eval_children!
-      return if @evaluated || @child_block.nil?
-
-      result = instance_eval(&@child_block)
-      render!(result) if can_render?(result)
-      @evaluated = true
-      nil
-    end
-
-    def can_render?(object)
-      [String, Numeric, FalseClass, TrueClass].any? do |simple_class|
-        object.is_a?(simple_class)
-      end
     end
   end
 end

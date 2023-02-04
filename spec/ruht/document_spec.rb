@@ -6,19 +6,13 @@ require 'ruht/document'
 
 RSpec.describe Ruht::Document do
   subject(:document) do
-    current_time = DateTime.parse('2023-01-28 11:57')
-    time_element = described_class.new do
-      time datetime: current_time.iso8601 do
-        current_time.asctime
-      end
-    end
     described_class.new do
       doctype :html
       html do
         body do
           main do
             p style: { color: :grey } do
-              render!(time_element)
+              'Hello world'
             end
           end
         end
@@ -34,9 +28,7 @@ RSpec.describe Ruht::Document do
         <body>
         <main>
         <p style="color: grey;">
-        <time datetime="2023-01-28T11:57:00+00:00">
-        Sat Jan 28 11:57:00 2023
-        </time>
+        Hello world
         </p>
         </main>
         </body>
@@ -44,7 +36,7 @@ RSpec.describe Ruht::Document do
       HTML
     end
 
-    it 'renders fragments' do
+    it 'renders document' do
       expect(document.to_s).to eq(html_including_fragment)
     end
   end

@@ -8,10 +8,11 @@ RSpec.describe Ruht::Element do
 
   describe '#to_s' do
     context 'when given some attributes' do
-      let(:element) { described_class.new(:section, some_attributes) }
+      let(:element) { described_class.new(:section, some_attributes) { :test } }
       let(:expected_html) do
         <<~HTML.strip
           <section id="title-1" tabindex="2">
+          test
           </section>
         HTML
       end
@@ -25,7 +26,7 @@ RSpec.describe Ruht::Element do
       let(:element) do
         described_class.new(:section, nil) do
           p do
-            span
+            span { :test }
           end
         end
       end
@@ -34,6 +35,7 @@ RSpec.describe Ruht::Element do
           <section>
           <p>
           <span>
+          test
           </span>
           </p>
           </section>
@@ -50,6 +52,14 @@ RSpec.describe Ruht::Element do
 
       it 'renders simple string if it is returned from the child block' do
         expect(element.to_s).to eq("<section>\nHello\n</section>")
+      end
+    end
+
+    context 'when given no children' do
+      let(:element) { described_class.new(:section, some_attributes) }
+
+      it 'uses shorthand syntax' do
+        expect(element.to_s).to eq('<section id="title-1" tabindex="2" />')
       end
     end
   end
