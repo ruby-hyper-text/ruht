@@ -1,0 +1,21 @@
+name: CI setup
+description: Default Ruby and gems installation steps
+
+inputs:
+  ruby-version:
+    description: Ruby version to install
+    required: false
+    default: 3.2.0
+
+runs:
+  runs-on: ubuntu-latest
+  using: composite
+  steps:
+    - uses: actions/checkout@v3
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ inputs.ruby-version }}
+        bundler-cache: true
+    - name: Run the default task
+      run: bin/rake

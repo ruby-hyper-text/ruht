@@ -5,9 +5,9 @@ module Ruht
 
     @children: Array[untyped]
     @evaluated: bool
-    @child_block: (^() -> untyped | nil)
+    @child_block: (^(self) -> untyped | nil)
 
-    def initialize: ?{ () -> untyped } -> void
+    def initialize: () ?{ (self) -> untyped } -> void
     def render!: (String | Fragment | Element | Symbol child_node) -> void
     def to_s: -> String
 

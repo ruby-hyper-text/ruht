@@ -7,9 +7,9 @@ on:
   pull_request:
 
 jobs:
-  build:
+  rspec:
     runs-on: ubuntu-latest
-    name: Ruby ${{ matrix.ruby }}
+    name: RSpec (tests)
     strategy:
       matrix:
         ruby:
@@ -19,37 +19,39 @@ jobs:
           - '3.2.0'
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
+    - name: Set up
+      uses: ./.github/actions/prelude
       with:
         ruby-version: ${{ matrix.ruby }}
-        bundler-cache: true
-    - name: Run the default task
-      run: bin/rake
+    - name: Run tests
+      run: bin/rspec
 
-  lint:
+  rubocop:
     runs-on: ubuntu-latest
-    name: Lint
+    name: Rubocop (lint)
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        bundler-cache: true
+    - name: Set up
+      uses: ./.github/actions/prelude
     - name: Run the rubocop
       run: bin/rubocop
 
-  types:
+  steep:
     runs-on: ubuntu-latest
-    name: Check types
+    name: Steep (type checks)
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        bundler-cache: true
+    - name: Set up
+      uses: ./.github/actions/prelude
     - name: Run the steep check
       run: bin/steep check
+
+  rbs:
+    runs-on: ubuntu-latest
+    name: RBS (type checks)
+
+    steps:
+    - name: Set up
+      uses: ./.github/actions/prelude
+    - name: Run the RBS check
+      run: bin/rbs

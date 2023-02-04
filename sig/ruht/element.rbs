@@ -7,7 +7,7 @@ module Ruht
     def initialize: (
       Symbol tag_name,
       Ruht::Attributes | nil attributes
-    ) ?{ () -> untyped } -> void
+    ) ?{ (self) -> untyped } -> void
 
     def to_s: -> String
   end
