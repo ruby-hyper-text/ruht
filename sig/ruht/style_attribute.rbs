@@ -1,9 +1,9 @@
 module Ruht
   class StyleAttribute
-    @styles_hash: Hash[String | Symbol, String | Symbol | Numeric] | String
+    @styles_hash: Hash[String | Symbol, String | Symbol | Numeric]
 
     def initialize: (
-      Hash[String | Symbol, String | Symbol | Numeric] | String styles_hash
+      Hash[String | Symbol, String | Symbol | Numeric] styles_hash
     ) -> void
 
     def to_s: () -> String
