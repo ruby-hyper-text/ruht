@@ -1,0 +1,26 @@
+name: Ruby Type Checks
+
+on: [push]
+
+jobs:
+  steep:
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, '[steep]')
+    name: Steep (type checks)
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up
+      uses: ./.github/actions/bin-command
+      with:
+        bin-command: steep check
+
+  rbs:
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, '[rbs]')
+    name: RBS (type checks)
+    steps:
+    - uses: actions/checkout@v3
+    - name: RBS
+      uses: ./.github/actions/bin-command
+      with:
+        bin-command: bin/rbs
