@@ -1,0 +1,26 @@
+module Ruht
+  class Element
+    include Tags
+
+    @tag_name: Symbol | String
+    @children: Array[String | Ruht::Element]
+    @evaluated: bool
+    @attributes: Ruht::Attributes
+    @child_block: nil | ^() -> void
+
+    def initialize: (
+      Symbol | String tag_name,
+      Ruht::Attributes attributes
+    ) ?{ () -> void } -> void
+
+    def render!: (untyped child_node) -> nil
+
+    def to_s: () -> untyped
+
+    private
+
+    def eval_children!: () -> nil
+
+    def can_render?: (untyped object) -> bool
+  end
+end
