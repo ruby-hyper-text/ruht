@@ -1,14 +1,16 @@
-name: CI setup
-description: Default Ruby and gems installation steps
+name: bin command
+description: Run bin command after installing Ruby and gems
 
 inputs:
   ruby-version:
     description: Ruby version to install
     required: false
     default: 3.2.0
+  bin-command:
+    description: Name of file in bin/ dir to be run
+    required: true
 
 runs:
-  runs-on: ubuntu-latest
   using: composite
   steps:
     - name: Set up Ruby
@@ -16,5 +18,5 @@ runs:
       with:
         ruby-version: ${{ inputs.ruby-version }}
         bundler-cache: true
-    - name: Run the default task
-      run: bin/rake
+    - name: Run bin/${{ inputs.bin-command }} task
+      run: bin/${{ inputs.bin-command }}

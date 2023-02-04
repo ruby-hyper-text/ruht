@@ -21,11 +21,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set up
-      uses: ./.github/actions/prelude
+      uses: ./.github/actions/bin-command
       with:
         ruby-version: ${{ matrix.ruby }}
-    - name: Run tests
-      run: bin/rspec
+        bin-command: rspec
 
   rubocop:
     runs-on: ubuntu-latest
@@ -34,9 +33,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set up
-      uses: ./.github/actions/prelude
-    - name: Run the rubocop
-      run: bin/rubocop
+      uses: ./.github/actions/bin-command
+      with:
+        bin-command: rubocop
 
   steep:
     runs-on: ubuntu-latest
@@ -45,9 +44,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set up
-      uses: ./.github/actions/prelude
-    - name: Run the steep check
-      run: bin/steep check
+      uses: ./.github/actions/bin-command
+      with:
+        bin-command: steep check
 
   rbs:
     runs-on: ubuntu-latest
@@ -55,7 +54,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up
-      uses: ./.github/actions/prelude
-    - name: Run the RBS check
-      run: bin/rbs
+    - name: RBS
+      uses: ./.github/actions/bin-command
+      with:
+        bin-command: bin/rbs
