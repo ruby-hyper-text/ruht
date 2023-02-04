@@ -2,9 +2,10 @@ module Ruht
   class Fragment
     extend Tags::ClassMethods
     include Tags
+
     @children: Array[untyped]
     @evaluated: bool
-    @child_block: nil
+    @child_block: (^() -> untyped | nil)
 
     def initialize: ?{ () -> untyped } -> void
     def render!: (String | Fragment | Element | Symbol child_node) -> void

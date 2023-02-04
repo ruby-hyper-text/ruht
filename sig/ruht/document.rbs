@@ -2,7 +2,7 @@ module Ruht
   class Document
     @doctype: VoidElement?
     @html: Element?
-    @child_block: Proc
+    @child_block: (^() -> untyped | nil)
 
     def initialize: ?{ () -> untyped } -> void
     def doctype: (*Symbol | String args) ?{ () -> untyped } -> VoidElement

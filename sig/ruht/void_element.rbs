@@ -1,9 +1,9 @@
 module Ruht
   class VoidElement
-    @tag_name: :input | :link | :meta
+    @tag_name: Symbol | String
     @attributes: Ruht::Attributes
 
-    def initialize: (:input | :link | :meta tag_name, Ruht::Attributes attributes) -> void
+    def initialize: (Symbol | String tag_name, Ruht::Attributes attributes) -> void
     def to_s: -> String
   end
 end
