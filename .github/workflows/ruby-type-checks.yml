@@ -1,0 +1,28 @@
+name: Ruby Type Checks
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  steep:
+    runs-on: ubuntu-latest
+    if: contains(github.pull_request.issue.labels.*.name, 'steep')
+    name: Steep (type checks)
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up
+      uses: ./.github/actions/bin-command
+      with:
+        bin-command: steep check
+
+  rbs:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'steep')
+    name: RBS (type checks)
+    steps:
+    - uses: actions/checkout@v3
+    - name: RBS
+      uses: ./.github/actions/bin-command
+      with:
+        bin-command: bin/rbs
