@@ -27,7 +27,7 @@ RSpec.describe Ruht::Attributes do
     end
 
     context 'with style attribute' do
-      let(:attributes) { { style: { background: :red, 'z-index' => 2 } } }
+      let(:attributes) { { style: { background: :red, 'z-index': 2 } } }
 
       it 'renders it as CSS' do
         expect(html).to eq('style="background: red; z-index: 2;"')

@@ -9,3 +9,4 @@
 
 # rspec failure tracking
 spec/.rspec_status
+coverage

@@ -58,8 +58,10 @@ RSpec.describe Ruht::Element do
     context 'when given no children' do
       let(:element) { described_class.new(:section, some_attributes) }
 
-      it 'uses shorthand syntax' do
-        expect(element.to_s).to eq('<section id="title-1" tabindex="2" />')
+      it 'renders the element in one line' do
+        expect(element.to_s).to eq(
+          '<section id="title-1" tabindex="2"></section>'
+        )
       end
     end
   end

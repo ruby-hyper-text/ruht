@@ -9,7 +9,7 @@ module Ruht
       protected
 
       def value
-        raw = super
+        raw = super()
         return raw if raw.is_a?(String)
 
         raw.join(' ')

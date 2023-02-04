@@ -4,10 +4,13 @@
 module Ruht
   class Attributes
     class DataAttributes
-      @value: untyped
+      @values: Hash[String | Symbol, String | Symbol | bool | Numeric]
 
-      def initialize: (untyped _name, untyped value) -> void
-      def to_s: -> untyped
+      def initialize: (
+        void _name,
+        Hash[String | Symbol, String | Symbol | bool | Numeric] values
+      ) -> void
+      def to_s: -> String
     end
   end
 end

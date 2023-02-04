@@ -12,7 +12,7 @@ module Ruht
         raw = super()
         return raw.to_s if raw.is_a?(String)
 
-        raw.map { "#{_1}: #{_2};" }.join(' ')
+        raw.map { |property, value| "#{property}: #{value};" }.join(' ')
       end
     end
   end
