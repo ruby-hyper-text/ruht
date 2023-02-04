@@ -24,11 +24,6 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby }}
         bin-command: rspec
-    - name: Archive code coverage results
-      uses: actions/upload-artifact@v3
-      with:
-        name: code-coverage-report
-        path: coverage/.last_run.json
 
   rubocop:
     runs-on: ubuntu-latest
