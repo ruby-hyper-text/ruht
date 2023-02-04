@@ -1,0 +1,19 @@
+module Ruht
+  class Fragment
+    extend Tags::ClassMethods
+    include Tags
+
+    @children: Array[untyped]
+    @evaluated: bool
+    @child_block: (^(self) -> untyped | nil)
+
+    def initialize: () ?{ (self) -> untyped } -> void
+    def render!: (String | Fragment | Element | Symbol child_node) -> void
+    def to_s: -> String
+
+    private
+
+    def eval_children!: -> void
+    def can_render?: (untyped object) -> bool
+  end
+end

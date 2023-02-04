@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 module Ruht
-  # DSL magic here
+  # DSL magic here. Including this module will define methods for HTML tags.
   module Tags
+    # Must be implemented
     def render!(_element)
       raise NotImplementedError
     end
@@ -11,10 +12,10 @@ module Ruht
     module ClassMethods
       def def_tag(tag_name)
         define_method(tag_name) do |*args, **kwargs, &block|
-          require "ruht/attributes"
+          require 'ruht/attributes'
           attributes = Ruht::Attributes.new(*args, **kwargs)
 
-          require "ruht/element"
+          require 'ruht/element'
           element = Ruht::Element.new(tag_name, attributes, &block)
           render!(element)
         end
@@ -22,10 +23,10 @@ module Ruht
 
       def def_void_tag(tag_name)
         define_method(tag_name) do |*args, **kwargs|
-          require "ruht/attributes"
+          require 'ruht/attributes'
           attributes = Ruht::Attributes.new(*args, **kwargs)
 
-          require "ruht/void_element"
+          require 'ruht/void_element'
           element = Ruht::VoidElement.new(tag_name, attributes)
           render!(element)
         end
@@ -36,11 +37,13 @@ module Ruht
       receiver.extend ClassMethods
 
       receiver.instance_eval do
-        %i[html head body title main p span time script].each do |tag|
+        %i[head body title main p span time script style pre].each do |tag|
           def_tag tag
         end
 
-        def_void_tag :input
+        %i[meta input link].each do |tag|
+          def_void_tag tag
+        end
       end
     end
   end

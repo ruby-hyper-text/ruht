@@ -1,0 +1,14 @@
+module Ruht
+  class Attributes
+    class ContentAttribute
+      @name: String | Symbol
+      @value: untyped
+
+      def initialize: (String | Symbol name, untyped value) -> void
+      def to_s: -> String
+
+      attr_reader name: String | Symbol
+      attr_reader value: untyped
+    end
+  end
+end

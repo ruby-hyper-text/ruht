@@ -1,9 +1,0 @@
-module Ruht
-  class ClassAttribute
-    @class_list: Array[Symbol | String] | String
-
-    def initialize: (Array[Symbol | String] | String class_list) -> void
-
-    def to_s: -> String
-  end
-end

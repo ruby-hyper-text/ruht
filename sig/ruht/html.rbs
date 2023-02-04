@@ -1,0 +1,3 @@
+module Ruht
+  def self.html: -> String
+end

@@ -1,0 +1,7 @@
+module Ruht
+  class Attributes
+    class ClassAttribute < ContentAttribute
+      def value: -> String
+    end
+  end
+end

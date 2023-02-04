@@ -3,21 +3,9 @@
 D = Steep::Diagnostic
 
 target :lib do
-  signature "sig", "sig-private"
+  signature 'sig', 'sig-private'
 
-  check "lib"
-  # TODO: Enable when fixed
-  # lib/ruht/element.rb:38:15: [error] Cannot find compatible overloading of
-  # │                           method `instance_eval` of type `::Ruht::Element`
-  # │ Method types:
-  # │   def instance_eval: (::String, ?::String, ?::Integer) -> untyped
-  # │                    | [U] () { (self) [self: self] -> U } -> U
-  # │
-  # │ Diagnostic ID: Ruby::UnresolvedOverloading
-  # │
-  # └       result = instance_eval(&@child_block)
-  #                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  ignore "lib/ruht/element.rb"
+  check 'lib'
 
   configure_code_diagnostics(D::Ruby.strict) # `strict` diagnostics setting
   # configure_code_diagnostics(D::Ruby.lenient) # `lenient` diagnostics setting

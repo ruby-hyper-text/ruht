@@ -1,31 +1,32 @@
 # frozen_string_literal: true
 
-require "ruht/element"
-require "ruht/attributes"
+require 'ruht/element'
+require 'ruht/attributes'
 
 RSpec.describe Ruht::Element do
-  let(:some_attributes) { Ruht::Attributes.new(id: "title-1", tabindex: 2) }
+  let(:some_attributes) { Ruht::Attributes.new(id: 'title-1', tabindex: 2) }
 
-  describe "#to_s" do
-    context "when given some attributes" do
-      let(:element) { described_class.new(:section, some_attributes) }
+  describe '#to_s' do
+    context 'when given some attributes' do
+      let(:element) { described_class.new(:section, some_attributes) { :test } }
       let(:expected_html) do
         <<~HTML.strip
           <section id="title-1" tabindex="2">
+          test
           </section>
         HTML
       end
 
-      it "renders the element and its attributes" do
+      it 'renders the element and its attributes' do
         expect(element.to_s).to eq(expected_html)
       end
     end
 
-    context "when given a block using DSL" do
+    context 'when given a block using DSL' do
       let(:element) do
         described_class.new(:section, nil) do
           p do
-            span
+            span { :test }
           end
         end
       end
@@ -34,29 +35,38 @@ RSpec.describe Ruht::Element do
           <section>
           <p>
           <span>
+          test
           </span>
           </p>
           </section>
         HTML
       end
 
-      it "renders the children defined with the DSL" do
+      it 'renders the children defined with the DSL' do
         expect(element.to_s).to eq(expected_html)
       end
     end
 
-    context "when given a string as return value from the child block" do
-      let(:element) { described_class.new(:section, nil) { "Hello" } }
+    context 'when given a string as return value from the child block' do
+      let(:element) { described_class.new(:section, nil) { 'Hello' } }
 
-      it "renders simple string if it is returned from the child block" do
+      it 'renders simple string if it is returned from the child block' do
         expect(element.to_s).to eq("<section>\nHello\n</section>")
+      end
+    end
+
+    context 'when given no children' do
+      let(:element) { described_class.new(:section, some_attributes) }
+
+      it 'uses shorthand syntax' do
+        expect(element.to_s).to eq('<section id="title-1" tabindex="2" />')
       end
     end
   end
 
-  describe "#render!" do
+  describe '#render!' do
     let(:element) do
-      another_element = described_class.new(:span, nil) { "test" }
+      another_element = described_class.new(:span, nil) { 'test' }
       described_class.new(:section, nil) do
         render!(another_element)
       end
@@ -71,7 +81,7 @@ RSpec.describe Ruht::Element do
       HTML
     end
 
-    it "allows to insert other elements" do
+    it 'allows to insert other elements' do
       expect(element.to_s).to eq(expected_html)
     end
   end
