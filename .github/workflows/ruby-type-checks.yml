@@ -18,7 +18,7 @@ jobs:
 
   rbs:
     runs-on: ubuntu-latest
-    if: contains(github.event.pull_request.labels.*.name, 'steep')
+    if: contains(github.event.pull_request.labels.*.name, 'rbs')
     name: RBS (type checks)
     steps:
     - uses: actions/checkout@v3
