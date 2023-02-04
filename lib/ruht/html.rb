@@ -8,9 +8,11 @@ module Ruht
   #   doctype :html
   #   head { ... }
   # end
-  module Html
-    def html(&block)
-      Ruht::Document.new(&block).to_s
-    end
+  #=>
+  # <!DOCTYPE html>
+  # ... etc
+  # See Ruht::Document for details.
+  def self.html(&block)
+    Ruht::Document.new(&block).to_s
   end
 end
