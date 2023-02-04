@@ -3,6 +3,17 @@
 require 'ruht/tags'
 
 module Ruht
+  # Represents a piece of HTML (a bunch of siblings-tags).
+  # It has no name nor attributes. Not being rendered itself,
+  # only renders its children.
+  # Fragment.new do
+  #   input
+  #   p
+  #   a
+  #=>
+  # <input>
+  # <p />
+  # <a />
   class Fragment
     include Tags
 
@@ -12,6 +23,7 @@ module Ruht
       @child_block = child_block
     end
 
+    # Allows to render other fragments / elements inside
     def render!(child_node)
       @children << child_node
       nil

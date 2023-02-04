@@ -12,8 +12,7 @@ module Ruht
     end
 
     def to_s
-      children = super() # call Fragment#to_s
-
+      children = super() # calls Fragment#to_s
       opening_tag = [@tag_name, @attributes].join(' ').strip
       return "<#{opening_tag} />" if children.empty?
 
