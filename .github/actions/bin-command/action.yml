@@ -20,3 +20,4 @@ runs:
         bundler-cache: true
     - name: Run bin/${{ inputs.bin-command }} task
       run: bin/${{ inputs.bin-command }}
+      shell: bash
