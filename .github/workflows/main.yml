@@ -19,6 +19,7 @@ jobs:
           - '3.2.0'
 
     steps:
+    - uses: actions/checkout@v3
     - name: Set up
       uses: ./.github/actions/prelude
       with:
@@ -31,6 +32,7 @@ jobs:
     name: Rubocop (lint)
 
     steps:
+    - uses: actions/checkout@v3
     - name: Set up
       uses: ./.github/actions/prelude
     - name: Run the rubocop
@@ -41,6 +43,7 @@ jobs:
     name: Steep (type checks)
 
     steps:
+    - uses: actions/checkout@v3
     - name: Set up
       uses: ./.github/actions/prelude
     - name: Run the steep check
@@ -51,6 +54,7 @@ jobs:
     name: RBS (type checks)
 
     steps:
+    - uses: actions/checkout@v3
     - name: Set up
       uses: ./.github/actions/prelude
     - name: Run the RBS check
