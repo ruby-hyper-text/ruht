@@ -1,0 +1,13 @@
+# TypeProf 0.21.4
+
+# Classes
+module Ruht
+  class Attributes
+    class DataAttributes
+      @value: untyped
+
+      def initialize: (untyped _name, untyped value) -> void
+      def to_s: -> untyped
+    end
+  end
+end

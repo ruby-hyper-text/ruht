@@ -1,26 +1,14 @@
 module Ruht
-  class Element
-    include Tags
-
-    @tag_name: Symbol | String
-    @children: Array[String | Ruht::Element]
-    @evaluated: bool
-    @attributes: Ruht::Attributes
-    @child_block: nil | ^() -> void
+  class Element < Fragment
+    @tag_name: Symbol
+    @attributes: Ruht::Attributes | nil
+    @children: Array[untyped]
 
     def initialize: (
-      Symbol | String tag_name,
-      Ruht::Attributes attributes
-    ) ?{ () -> void } -> void
+      Symbol tag_name,
+      Ruht::Attributes | nil attributes
+    ) ?{ () -> untyped } -> void
 
-    def render!: (untyped child_node) -> nil
-
-    def to_s: () -> untyped
-
-    private
-
-    def eval_children!: () -> nil
-
-    def can_render?: (untyped object) -> bool
+    def to_s: -> String
   end
 end

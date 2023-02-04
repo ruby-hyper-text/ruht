@@ -1,0 +1,7 @@
+module Ruht
+  class Attributes
+    class StyleAttribute < ContentAttribute
+      def value: -> untyped
+    end
+  end
+end

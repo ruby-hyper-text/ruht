@@ -1,0 +1,10 @@
+module Ruht
+  class Attributes
+    class BooleanAttribute
+      @name: String | Symbol
+
+      def initialize: (String | Symbol name) -> void
+      def to_s: -> String
+    end
+  end
+end

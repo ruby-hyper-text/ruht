@@ -1,11 +1,9 @@
 module Ruht
-  # Represents elements with no closing tag and no children
   class VoidElement
-    @tag_name: Symbol | String
+    @tag_name: :input | :link | :meta
     @attributes: Ruht::Attributes
 
-    def initialize: (Symbol | String tag_name, Ruht::Attributes attributes) -> void
-
-    def to_s: () -> ::String
+    def initialize: (:input | :link | :meta tag_name, Ruht::Attributes attributes) -> void
+    def to_s: -> String
   end
 end

@@ -1,18 +1,11 @@
 module Ruht
-  # DSL magic here
   module Tags
-    def render!: (untyped _element) -> nil
+    def render!: (untyped _element) -> void
+    def self.included: (Module receiver) -> void
 
-    # Allows to define new tags
     module ClassMethods
-      def def_tag: (Symbol tag_name) -> nil
-      def def_void_tag: (Symbol tag_name) -> nil
+      def def_tag: (Symbol tag_name) -> void
+      def def_void_tag: (Symbol tag_name) -> void
     end
-
-    def self.def_tag: (Symbol tag_name) -> nil
-
-    def self.def_void_tag: (Symbol tag_name) -> nil
-
-    def self.included: (Class receiver) -> untyped
   end
 end

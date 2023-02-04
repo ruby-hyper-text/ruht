@@ -1,9 +1,12 @@
 module Ruht
-  class Document < Ruht::Element
-    def initialize: () ?{ () -> untyped } -> void
+  class Document
+    @doctype: VoidElement?
+    @html: Element?
+    @child_block: Proc
 
-    def doctype: (*untyped args) -> untyped
-
-    def to_s: () -> untyped
+    def initialize: ?{ () -> untyped } -> void
+    def doctype: (*Symbol | String args) ?{ () -> untyped } -> VoidElement
+    def html: (*Symbol args, **untyped kwargs) -> Element
+    def to_s: -> String
   end
 end

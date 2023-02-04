@@ -1,0 +1,3 @@
+module Ruht
+  def self.file: (?nil path) -> String
+end

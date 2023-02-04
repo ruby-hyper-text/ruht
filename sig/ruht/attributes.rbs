@@ -1,32 +1,13 @@
 module Ruht
   class Attributes
-    @boolean_attributes: Array[Symbol | String]
-    @class_list: Array[Symbol | String] | nil
-    @style_attribute_value: Hash[String | Symbol, String | Symbol | Numeric] | nil
-    @data_attributes_hash: Hash[String | Symbol, String | Symbol | Numeric | bool] | nil
-    @content_attributes: Hash[String | Symbol, String | Symbol | Numeric | bool]
+    @boolean_attributes: untyped
+    @content_attributes: untyped
 
-    def initialize: (
-      *Symbol | String boolean_attributes,
-      ? class: Array[String | Symbol] | nil,
-      ? data: Hash[String | Symbol, String | Symbol | Numeric | bool] | nil,
-      ? style: Hash[String | Symbol, String | Symbol | Numeric] | nil,
-      **untyped content_attributes
-    ) -> void
-
-    def to_s: () -> String
+    def initialize: (*untyped boolean_attributes, **untyped) -> void
+    def to_s: -> String
 
     private
-
-    def format_attribute: (
-      Symbol | String name,
-      String | Symbol | bool | Numeric value
-    ) -> String
-
-    def class_attribute: -> String?
-
-    def style_attribute: -> String?
-
-    def data_attributes: -> String?
+    def boolean_attributes: -> Array[Ruht::Attributes::BooleanAttribute]
+    def content_attributes: -> Array[ContentAttribute | DataAttributes]
   end
 end
