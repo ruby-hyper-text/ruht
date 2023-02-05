@@ -48,11 +48,13 @@ end
 # </html>
 ```
 
+More examples can be found in [ruht-example repository][1].
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org][1].
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org][2].
 
 ### Running type checks in GitHub Actions
 
@@ -62,18 +64,19 @@ to a commit message. You can run them locally using `bin/steep check` and
 
 ## Contributing
 
-Bug reports and pull requests are welcome at [our GitHub repository][2].
-This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct][3].
+Bug reports and pull requests are welcome at [our GitHub repository][3].
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct][4].
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License][4].
+The gem is available as open source under the terms of the [MIT License][5].
 
 ## Code of Conduct
 
-Everyone interacting in the Ruht project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct][3].
+Everyone interacting in the Ruht project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct][4].
 
-[1]: https://rubygems.org
-[2]: https://github.com/ruby-hyper-text/ruht
-[3]: https://github.com/ruby-hyper-text/ruht/blob/main/CODE_OF_CONDUCT.md
-[4]: https://opensource.org/licenses/MIT
+[1]: https://github.com/ruby-hyper-text/ruht-example
+[2]: https://rubygems.org
+[3]: https://github.com/ruby-hyper-text/ruht
+[4]: https://github.com/ruby-hyper-text/ruht/blob/main/CODE_OF_CONDUCT.md
+[5]: https://opensource.org/licenses/MIT
