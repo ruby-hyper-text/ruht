@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruht (0.1.0)
+    ruht (0.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -111,4 +111,4 @@ DEPENDENCIES
   typeprof
 
 BUNDLED WITH
-   2.3.12
+   2.4.1

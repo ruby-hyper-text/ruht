@@ -1,37 +1,79 @@
 # Ruht
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ruht`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Ruht generates HTML using Ruby language.
+`ruht` stands for RUby Hyper Text or RUby HTml.
 
 ## Installation
 
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add ruht
+```bash
+bundle add ruht
+```
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install ruht
+```bash
+gem install ruht
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+To generate HTML code right away you can use `Ruht.html` method.
+
+```ruby
+require 'ruht'
+
+Ruht.html do
+  doctype :html
+  html do
+    head lang: :en do
+      # ...
+    end
+
+    body do
+      # ...
+    end
+  end
+end
+#=>
+# <!DOCTYPE html>
+# <html lang="en">
+# <head>
+#  ...
+# </head>
+# <body>
+#  ...
+# </body>
+# </html>
+```
 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org][1].
+
+### Running type checks in GitHub Actions
+
+If you want to run Steep and RBS in CI add `[steep]` and `[rbs]` respectfully
+to a commit message. You can run them locally using `bin/steep check` and
+`bin/rbs`.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/DmitryBarskov/ruht. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/DmitryBarskov/ruht/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome at [our GitHub repository][2].
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct][3].
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [MIT License][4].
 
 ## Code of Conduct
 
-Everyone interacting in the Ruht project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/DmitryBarskov/ruht/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the Ruht project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct][3].
+
+[1]: https://rubygems.org
+[2]: https://github.com/ruby-hyper-text/ruht
+[3]: https://github.com/ruby-hyper-text/ruht/blob/main/CODE_OF_CONDUCT.md
+[4]: https://opensource.org/licenses/MIT
