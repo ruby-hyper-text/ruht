@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Scaffold signatures. Using along with Git helps update RBS files.
+
 find lib -name \*.rb -print \
     | cut -sd / -f 2- \
     | xargs -I{} bash -c \

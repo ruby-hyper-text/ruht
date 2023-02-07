@@ -1,5 +1,8 @@
 module Ruht
   module Tags
+    TAG_NAMES: Array[Symbol]
+    VOID_TAG_NAMES: Array[Symbol]
+
     def render!: (untyped _element) -> void
     def self.included: (Module receiver) -> void
 

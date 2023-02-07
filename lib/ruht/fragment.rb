@@ -48,5 +48,17 @@ module Ruht
         object.is_a?(simple_class)
       end
     end
+
+    def method_missing(method_name, *args, &block)
+      return super unless respond_to_missing?(method_name, *args, &block)
+
+      @child_block.binding.receiver.send(method_name, *args, &block)
+    end
+
+    def respond_to_missing?(method_name, *args)
+      return false unless @child_block
+
+      @child_block.binding.receiver.respond_to?(method_name)
+    end
   end
 end
