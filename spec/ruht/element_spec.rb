@@ -68,10 +68,12 @@ RSpec.describe Ruht::Element do
 
   describe '#render!' do
     let(:element) do
-      another_element = described_class.new(:span, nil) { 'test' }
       described_class.new(:section, nil) do
         render!(another_element)
       end
+    end
+    let(:another_element) do
+      described_class.new(:span, nil) { 'test' }
     end
     let(:expected_html) do
       <<~HTML.strip

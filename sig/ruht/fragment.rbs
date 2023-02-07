@@ -15,5 +15,8 @@ module Ruht
 
     def eval_children!: -> void
     def can_render?: (untyped object) -> bool
+
+    def method_missing: (Symbol method_name, *untyped args) -> untyped
+    def respond_to_missing?: (Symbol method_name, *untyped args) -> bool
   end
 end

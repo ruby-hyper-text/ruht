@@ -26,12 +26,10 @@ RSpec.describe Ruht::Fragment do
 
   describe '#render!' do
     let(:fragment) do
-      # TODO: fix passing the context
-      inner = inner_fragment
       described_class.new do
         p do
           render! 'Given some text'
-          render! inner
+          render! inner_fragment
         end
       end
     end
