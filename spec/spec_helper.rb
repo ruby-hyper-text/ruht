@@ -16,6 +16,6 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
-  config.profile_examples = 3
+  config.profile_examples = 1
   config.order = :random
 end

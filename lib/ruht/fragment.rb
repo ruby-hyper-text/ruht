@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'ruht/closure_capturing'
 require 'ruht/tags'
 
 module Ruht
@@ -15,12 +16,14 @@ module Ruht
   # <p />
   # <a />
   class Fragment
+    include ClosureCapturing
     include Tags
 
     def initialize(&child_block)
       @children = []
       @evaluated = false
       @child_block = child_block
+      super(child_block&.binding&.receiver)
     end
 
     # Allows to render other fragments / elements inside
@@ -47,18 +50,6 @@ module Ruht
       [String, Numeric, FalseClass, TrueClass, Symbol].any? do |simple_class|
         object.is_a?(simple_class)
       end
-    end
-
-    def method_missing(method_name, *args, &block)
-      return super unless respond_to_missing?(method_name, *args, &block)
-
-      @child_block.binding.receiver.send(method_name, *args, &block)
-    end
-
-    def respond_to_missing?(method_name, *args)
-      return false unless @child_block
-
-      @child_block.binding.receiver.respond_to?(method_name)
     end
   end
 end

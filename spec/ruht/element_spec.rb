@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'ruht/element'
 require 'ruht/attributes'
+require 'ruht/element'
 
 RSpec.describe Ruht::Element do
   let(:some_attributes) { Ruht::Attributes.new(id: 'title-1', tabindex: 2) }
