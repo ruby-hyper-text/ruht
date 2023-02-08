@@ -1,14 +1,17 @@
 module Ruht
   class Fragment
     extend Tags::ClassMethods
+    include ClosureCapturing
     include Tags
 
     @children: Array[untyped]
     @evaluated: bool
     @child_block: (^(self) -> untyped | nil)
+    @context: untyped
 
-    def initialize: () ?{ (self) -> untyped } -> void
-    def render!: (String | Fragment | Element | Symbol child_node) -> void
+    def initialize: ?{ (self) -> untyped } -> void
+
+    def render!: (untyped child_node) -> Array[untyped]
     def to_s: -> String
 
     private

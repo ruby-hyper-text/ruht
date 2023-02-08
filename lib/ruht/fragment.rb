@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'ruht/tags'
 require 'ruht/closure_capturing'
+require 'ruht/tags'
 
 module Ruht
   # Represents a piece of HTML (a bunch of siblings-tags).
@@ -16,14 +16,14 @@ module Ruht
   # <p />
   # <a />
   class Fragment
-    include Tags
     include ClosureCapturing
+    include Tags
 
     def initialize(&child_block)
       @children = []
       @evaluated = false
       @child_block = child_block
-      super(child_block)
+      super(child_block&.binding&.receiver)
     end
 
     # Allows to render other fragments / elements inside

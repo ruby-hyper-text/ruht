@@ -1,0 +1,12 @@
+module Ruht
+  module ClosureCapturing
+    @context: untyped
+
+    def initialize: (untyped closure) -> void
+
+    private
+
+    def method_missing: (Symbol method_name, *untyped args) -> untyped
+    def respond_to_missing?: (Symbol method_name, ?bool include_all) -> bool
+  end
+end
