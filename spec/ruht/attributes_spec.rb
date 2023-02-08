@@ -21,7 +21,7 @@ RSpec.describe Ruht::Attributes do
     describe 'content attributes format' do
       let(:attributes) { { action: '/forms', disabled: false } }
 
-      it do
+      it 'renders them with double quotes' do
         expect(html).to eq('action="/forms" disabled="false"')
       end
     end

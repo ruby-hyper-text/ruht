@@ -54,6 +54,23 @@ RSpec.describe Ruht::Fragment do
     it 'can render other fragments inside' do
       expect(fragment.to_s).to eq(expected_html)
     end
+
+    context 'with other fragments defined in a different scope' do
+      let(:fragment) do
+        require 'fixtures/another_fragment'
+
+        described_class.new do
+          p do
+            render! 'Given some text'
+            render! another_fragment
+          end
+        end
+      end
+
+      it 'can render other fragments inside' do
+        expect(fragment.to_s).to eq(expected_html)
+      end
+    end
   end
 
   describe 'basic elements' do
