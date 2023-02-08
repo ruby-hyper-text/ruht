@@ -33,7 +33,7 @@ module Ruht
 
     def to_s
       eval_children!
-      @children.join("\n").strip
+      @children.join("\n").strip #.lines.map { "  " + _1 }.join
     end
 
     private

@@ -12,7 +12,7 @@ RSpec.describe Ruht::Element do
       let(:expected_html) do
         <<~HTML.strip
           <section id="title-1" tabindex="2">
-          test
+            test
           </section>
         HTML
       end
@@ -33,11 +33,11 @@ RSpec.describe Ruht::Element do
       let(:expected_html) do
         <<~HTML.strip
           <section>
-          <p>
-          <span>
-          test
-          </span>
-          </p>
+            <p>
+              <span>
+                test
+              </span>
+            </p>
           </section>
         HTML
       end
@@ -49,9 +49,16 @@ RSpec.describe Ruht::Element do
 
     context 'when given a string as return value from the child block' do
       let(:element) { described_class.new(:section, nil) { 'Hello' } }
+      let(:expected_html) do
+        <<~HTML.strip
+          <section>
+            Hello
+          </section>
+        HTML
+      end
 
       it 'renders simple string if it is returned from the child block' do
-        expect(element.to_s).to eq("<section>\nHello\n</section>")
+        expect(element.to_s).to eq(expected_html)
       end
     end
 
@@ -78,9 +85,9 @@ RSpec.describe Ruht::Element do
     let(:expected_html) do
       <<~HTML.strip
         <section>
-        <span>
-        test
-        </span>
+          <span>
+            test
+          </span>
         </section>
       HTML
     end

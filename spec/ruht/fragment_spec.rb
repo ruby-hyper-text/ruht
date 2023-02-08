@@ -14,7 +14,7 @@ RSpec.describe Ruht::Fragment do
       <<~HTML.strip
         <input>
         <button>
-        click
+          click
         </button>
       HTML
     end
@@ -43,10 +43,10 @@ RSpec.describe Ruht::Fragment do
     let(:expected_html) do
       <<~HTML.strip
         <p>
-        Given some text
-        <span>
-        Given another fragment
-        </span>
+          Given some text
+          <span>
+            Given another fragment
+          </span>
         </p>
       HTML
     end
@@ -88,10 +88,9 @@ RSpec.describe Ruht::Fragment do
             JS
           end
           style do
-            # TODO: format CSS properly
             <<~CSS
               body {
-              margin: 0;
+                margin: 0;
               }
             CSS
           end
@@ -136,8 +135,7 @@ RSpec.describe Ruht::Fragment do
     end
 
     let(:expected_html) do
-      # TODO: support correct indetation of HTML
-      <<~HTML.strip.lines.map(&:strip).join("\n")
+      <<~HTML.strip
         <head>
           <title>
             page

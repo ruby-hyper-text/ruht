@@ -25,13 +25,13 @@ RSpec.describe Ruht::Document do
       <<~HTML.strip
         <!DOCTYPE html>
         <html>
-        <body>
-        <main>
-        <p style="color: grey;">
-        Hello world
-        </p>
-        </main>
-        </body>
+          <body>
+            <main>
+              <p style="color: grey;">
+                Hello world
+              </p>
+            </main>
+          </body>
         </html>
       HTML
     end

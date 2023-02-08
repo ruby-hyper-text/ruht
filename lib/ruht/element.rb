@@ -21,7 +21,7 @@ module Ruht
 
       [
         "<#{opening_tag}>",
-        children,
+        children.lines.map { "  " + _1 }.join,
         "<#{closing_tag}>"
       ].join("\n").strip
     end
