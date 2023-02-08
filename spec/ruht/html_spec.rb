@@ -12,9 +12,9 @@ RSpec.describe Ruht, '.html' do
   let(:expected_html) do
     <<~HTML.strip
       <html>
-      <p>
-      hello
-      </p>
+        <p>
+          hello
+        </p>
       </html>
     HTML
   end
