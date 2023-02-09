@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require 'ruht/attributes'
+require 'ruht/element'
+require 'ruht/void_element'
+
 module Ruht
   # DSL magic here. Including this module will define methods for HTML tags.
   module Tags
@@ -36,10 +40,7 @@ module Ruht
     module ClassMethods
       def def_tag(tag_name)
         define_method(tag_name) do |*args, **kwargs, &block|
-          require 'ruht/attributes'
           attributes = Ruht::Attributes.new(*args, **kwargs)
-
-          require 'ruht/element'
           element = Ruht::Element.new(tag_name, attributes, &block)
           render!(element)
         end
@@ -47,10 +48,7 @@ module Ruht
 
       def def_void_tag(tag_name)
         define_method(tag_name) do |*args, **kwargs|
-          require 'ruht/attributes'
           attributes = Ruht::Attributes.new(*args, **kwargs)
-
-          require 'ruht/void_element'
           element = Ruht::VoidElement.new(tag_name, attributes)
           render!(element)
         end
