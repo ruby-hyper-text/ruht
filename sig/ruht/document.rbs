@@ -1,12 +1,16 @@
 module Ruht
   class Document
+    include ClosureCapturing
+
     @doctype: VoidElement?
     @html: Element?
     @child_block: (^(self) -> untyped)
 
     def initialize: { (self) -> untyped } -> void
-    def doctype: (*Symbol | String args) ?{ () -> untyped } -> VoidElement
-    def html: (*Symbol args, **untyped kwargs) -> Element
+
+    def doctype: (*Symbol | String args) ?{ () -> untyped } -> void
+    def html: (*Symbol args, **untyped kwargs) -> void
+
     def to_s: -> String
   end
 end
