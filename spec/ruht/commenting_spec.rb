@@ -5,8 +5,8 @@ RSpec.describe Ruht::Commenting do
     let(:fragment_with_comment) do
       described_class.new do
         p do
-          comment "the text below should receive updates every year"
-          render!("Copyright (c) 2023")
+          comment 'the text below should receive updates every year'
+          render!('Copyright (c) 2023')
         end
       end
     end
