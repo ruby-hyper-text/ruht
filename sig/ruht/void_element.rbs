@@ -1,10 +1,9 @@
 module Ruht
   class VoidElement
-    @tag_name Symbol | String
+    @tag_name: Symbol | String
     @attributes: Attributes
 
     def initialize: (Symbol | String tag_name, Attributes attributes) -> void
-
     def to_s: -> String
   end
 end
