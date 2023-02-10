@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'ruht/attributes'
+require 'ruht/commenting'
 require 'ruht/element'
 require 'ruht/void_element'
 
@@ -19,6 +20,7 @@ module Ruht
   # </html>
   class Document
     include ClosureCapturing
+    include Commenting
 
     def initialize(&child_block)
       @doctype = nil
