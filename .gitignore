@@ -9,4 +9,6 @@
 
 # rspec failure tracking
 spec/.rspec_status
+
+.byebug_history
 coverage

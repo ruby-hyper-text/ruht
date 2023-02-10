@@ -4,11 +4,12 @@ RSpec.describe Ruht, '.html' do
   subject(:html) do
     described_class.html do
       html do
-        p { 'hello' }
+        p { message }
       end
     end
   end
 
+  let(:message) { 'hello' }
   let(:expected_html) do
     <<~HTML.strip
       <html>
