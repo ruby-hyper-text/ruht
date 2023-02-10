@@ -18,10 +18,14 @@ module Ruht
   # ...
   # </html>
   class Document
+    include ClosureCapturing
+
     def initialize(&child_block)
       @doctype = nil
       @html = nil
       @child_block = child_block
+
+      super(@child_block&.binding&.receiver)
     end
 
     def doctype(*args)
