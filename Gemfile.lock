@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruht (0.1.0)
+    ruht (0.1.1)
 
 GEM
   remote: https://rubygems.org/
