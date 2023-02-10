@@ -26,26 +26,34 @@ require 'ruht'
 
 Ruht.html do
   doctype :html
-  html do
-    head lang: :en do
-      # ...
+  html lang: :en do
+    head do
+      meta charset: 'UTF-8'
+      title { 'Document' }
     end
 
     body do
-      # ...
+      ...
     end
   end
 end
-#=>
-# <!DOCTYPE html>
-# <html lang="en">
-# <head>
-#  ...
-# </head>
-# <body>
-#  ...
-# </body>
-# </html>
+```
+
+This code will produce this HTML (as a string):
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Document
+    </title>
+  </head>
+  <body>
+    ...
+  </body>
+</html>
 ```
 
 More examples can be found in [ruht-example repository][1].

@@ -1,0 +1,5 @@
+module Ruht
+  module Commenting
+    def comment: (?String string) ?{ () -> String } -> void
+  end
+end

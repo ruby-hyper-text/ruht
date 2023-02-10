@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'ruht/closure_capturing'
+require 'ruht/commenting'
 require 'ruht/tags'
 
 module Ruht
@@ -13,10 +14,11 @@ module Ruht
   #   a
   #=>
   # <input>
-  # <p />
-  # <a />
+  # <p></p>
+  # <a></a>
   class Fragment
     include ClosureCapturing
+    include Commenting
     include Tags
 
     def initialize(&child_block)
