@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = 'DSL for building HTML written in Ruby'
   spec.description = 'Ruht lets you generate HTML using Ruby syntax'
-  spec.homepage = 'https://github.com/DmitryBarskov/ruht'
+  spec.homepage = 'https://github.com/ruby-hyper-text/ruht'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 2.7.0'
 
@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = spec.homepage
   spec.metadata['changelog_uri'] = "#{spec.homepage}/blob/main/CHANGELOG.md"
+  spec.metadata['github_repo'] = 'ssh://github.com/ruby-hyper-text/ruht'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem

@@ -1,3 +1,7 @@
+## [0.1.1] - 2023-02-10
+
+- Update links in .gemspec
+
 ## [0.1.0] - 2023-02-10
 
 - Capturing variables and methods from the scope
