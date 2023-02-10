@@ -1,3 +1,3 @@
 module Ruht
-  def self.file: (?nil path) -> String
+  def self.file: (?String path) ?{ () -> String } -> String
 end

@@ -5,4 +5,4 @@
 find lib -name \*.rb -print \
     | cut -sd / -f 2- \
     | xargs -I{} bash -c \
-        'export file={}; export target=sig/$file; mkdir -p ${target%/*}; bundle exec typeprof lib/$file > sig/${file/rb/rbs}'
+        'export file={}; export target=sig/$file; mkdir -p ${target%/*}; bundle exec typeprof lib/$file --no-show-typeprof-version | sed -n "/^# Classes/!p" > sig/${file/rb/rbs}'
