@@ -11,11 +11,17 @@ RSpec.describe Ruht::Document do
       html do
         body do
           main do
-            p style: { color: :grey } do
-              'Hello world'
-            end
+            render!(some_fragment)
           end
         end
+      end
+    end
+  end
+
+  let(:some_fragment) do
+    Ruht::Fragment.new do
+      p style: { color: :grey } do
+        'Hello world'
       end
     end
   end
