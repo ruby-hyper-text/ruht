@@ -63,6 +63,8 @@ module Ruht
           def_tag tag_name
         end
 
+        alias_method :paragraph, :p
+
         VOID_TAG_NAMES.each do |tag_name|
           def_void_tag tag_name
         end

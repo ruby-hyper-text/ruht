@@ -1,5 +1,7 @@
 # Ruht
 
+[![Gem Version](https://badge.fury.io/rb/ruht.svg)](https://badge.fury.io/rb/ruht)
+
 Ruht generates HTML using Ruby language.
 `ruht` stands for RUby Hyper Text or RUby HTml.
 
@@ -56,7 +58,7 @@ This code will produce this HTML (as a string):
 </html>
 ```
 
-More examples can be found in [ruht-example repository][1].
+More examples can be found in [docs/][1].
 
 ## Development
 
@@ -83,7 +85,7 @@ The gem is available as open source under the terms of the [MIT License][5].
 
 Everyone interacting in the Ruht project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct][4].
 
-[1]: https://github.com/ruby-hyper-text/ruht-example
+[1]: docs/
 [2]: https://rubygems.org
 [3]: https://github.com/ruby-hyper-text/ruht
 [4]: https://github.com/ruby-hyper-text/ruht/blob/main/CODE_OF_CONDUCT.md
