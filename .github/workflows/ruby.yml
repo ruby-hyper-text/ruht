@@ -13,10 +13,10 @@ jobs:
     strategy:
       matrix:
         ruby:
-          - '2.7.7'
-          - '3.0.5'
-          - '3.1.3'
-          - '3.2.1'
+          - '3.0.7'
+          - '3.1.6'
+          - '3.2.4'
+          - '3.3.2'
     steps:
     - uses: actions/checkout@v3
     - name: Set up
@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Rubocop (lint)
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up
       uses: ./.github/actions/bin-command
       with:
