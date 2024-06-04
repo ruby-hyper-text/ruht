@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Rubocop (lint)
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up
       uses: ./.github/actions/bin-command
       with:
