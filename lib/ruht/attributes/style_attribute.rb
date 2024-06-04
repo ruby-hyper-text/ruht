@@ -9,7 +9,7 @@ module Ruht
       protected
 
       def value
-        raw = super()
+        raw = super
         return raw.to_s if raw.is_a?(String)
 
         raw.map { |property, value| "#{property}: #{value};" }.join(' ')
