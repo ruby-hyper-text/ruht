@@ -40,7 +40,7 @@ GEM
     minitest (5.23.1)
     mutex_m (0.2.0)
     parallel (1.25.1)
-    parser (3.3.2.0)
+    parser (3.3.3.0)
       ast (~> 2.4.1)
       racc
     racc (1.8.0)
@@ -95,7 +95,7 @@ GEM
       rubocop (~> 1.40)
     ruby-progressbar (1.13.0)
     securerandom (0.3.1)
-    steep (1.7.0)
+    steep (1.7.1)
       activesupport (>= 5.1)
       concurrent-ruby (>= 1.1.10)
       csv (>= 3.0.9)
